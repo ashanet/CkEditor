@@ -13,24 +13,24 @@ composer require ashanet/ckeditor
 Then in config/bootstrap.php add:
 
 ```php
-Plugin::load('CkEditor');
+$this->addPlugin('CkEditor');
 ```
 
 In either src/Controller/AppController.php, or any controller where you want to use CKEditor, add:
 
 ```php
-public $helpers = ['CkEditor.Ck'];
+$this->viewBuilder()->setHelpers(['CkEditor.Ck']);
 ```
 
 Finally, in your template file, simply add this to call CKEditor:
 
 ```php
-echo $this->Ck->input('field_name');
+echo $this->Ck->control('field_name');
 ```
 
 This is the equilivant of using
 ```php
-echo $this->Form->input('field_name');
+echo $this->Form->control('field_name');
 ```
 
 Except that CKEditor will be loaded instead of a text area!
@@ -42,7 +42,7 @@ You can make adjustments to CKEditor and the form input as needed.  There is ful
 The full explaination is as follows:
 
 ```php
-echo $this->Form->input($input, $options, $ckEditorOptions, $ckEditorUrl, $ckEditorPlugins);
+echo $this->Form->control($input, $options, $ckEditorOptions, $ckEditorUrl, $ckEditorPlugins);
 ```
 ```php
 @param string $input
@@ -74,34 +74,34 @@ An array of locally installed CKEditor plugins to include, as one sub-array per 
 Use an associated field name
 
 ```php
-echo $this->Ck->input('category.description');
+echo $this->Ck->control('category.description');
 ```
 
 Generate a custom label
 
 ```php
-echo $this->Ck->input('field_name', ['label' => 'A unique label']);
+echo $this->Ck->control('field_name', ['label' => 'A unique label']);
 ```
 
 Add options to CKEditor from [http://docs.ckeditor.com/#!/guide/dev_configuration](http://docs.ckeditor.com/#!/guide/dev_configuration)
 
 ```php
-echo $this->Ck->input('field_name', [], ['fullPage' => true, 'allowedContent' => 'true']);
+echo $this->Ck->control('field_name', [], ['fullPage' => true, 'allowedContent' => 'true']);
 ```
 
 Load a local version of CKEditor, or a different version
 
 ```php
-echo $this->Ck->input('field_name', [], [], '/js/ckeditor.js');
+echo $this->Ck->control('field_name', [], [], '/js/ckeditor.js');
 ```
 
 Load a locally installed CKEditor plugin
 ```php
-echo $this->Ck->input('field_name', [], [], null, [['myplugin', '/ckplugins/myplugin/', 'myplugin.js']]);
+echo $this->Ck->control('field_name', [], [], null, [['myplugin', '/ckplugins/myplugin/', 'myplugin.js']]);
 ```
 
 Example showing all the options together
 
 ```php
-echo $this->Ck->input('field_name', ['label' => 'A unique label'], ['fullPage' => true, 'allowedContent' => 'true'], '/js/ckeditor.js', [['myplugin', '/ckplugins/myplugin/', 'myplugin.js']]);
+echo $this->Ck->control('field_name', ['label' => 'A unique label'], ['fullPage' => true, 'allowedContent' => 'true'], '/js/ckeditor.js', [['myplugin', '/ckplugins/myplugin/', 'myplugin.js']]);
 ```
