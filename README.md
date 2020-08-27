@@ -7,7 +7,7 @@ You can install this plugin into your CakePHP application using [composer](http:
 The recommended way to install composer packages is:
 
 ```
-composer require cakecoded/ckeditor
+composer require ashanet/ckeditor
 ```
 
 Then in config/bootstrap.php add:
