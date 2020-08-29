@@ -19,7 +19,7 @@ class CkHelper extends Helper
     *         {@see https://docs.ckeditor.com/ckeditor4/latest/api/CKEDITOR_plugins.html#addExternal CKEditor documentation},
     *         i.e. $plugins = [['sample', '/myplugins/sample/', 'my_plugin.js']]
     */
-    public function input($input, $options = [], $ckEditorOptions = [], $ckEditorUrl = null, $ckEditorPlugins = []) {
+    public function control($input, $options = [], $ckEditorOptions = [], $ckEditorUrl = null, $ckEditorPlugins = []) {
         $lines = [];
 
         if (!$ckEditorUrl) {
